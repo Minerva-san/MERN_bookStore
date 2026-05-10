@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Minerva-san/MERN_bookStore/issues"
   },
-  "homepage": "https://github.com/Minerva-san/MERN_bookStore#readme"
+  "homepage": "https://github.com/Minerva-san/MERN_bookStore#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

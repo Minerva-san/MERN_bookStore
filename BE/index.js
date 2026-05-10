@@ -1,4 +1,5 @@
 import express from "express";
+import path from 'path';
 // import {PORT,mongoDBURL} from "./config.js";
 import mongoose from 'mongoose';
 import {Book} from "./models/bookModel.js";
@@ -7,6 +8,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 dotenv.config()
+const __dirname=path.resolve()
 const PORT=process.env.PORT || 5555
 const mongoDBURI = process.env.MONGO_URI;
 const app=express();
@@ -23,6 +25,13 @@ app.get('/',(req,res)=>{
     return res.status(234).send("Welcome to MERN Stack");
 })
 app.use('/books',booksRoute)
+
+if(process.env.NODE_ENV==="production"){
+    app.use(express.static(path.join(__dirname,"../FE/dist")));
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"../FE","dist","index.html"));
+    });  
+}
 
 mongoose
 .connect(mongoDBURI)

@@ -1,0 +1,22 @@
+{
+  "name": "mern_bookstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix BE && npm install --prefix FE && npm run build --prefix FE",
+    "start": "npm run start --prefix BE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minerva-san/MERN_bookStore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Minerva-san/MERN_bookStore/issues"
+  },
+  "homepage": "https://github.com/Minerva-san/MERN_bookStore#readme"
+}

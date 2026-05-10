@@ -13,17 +13,15 @@ const PORT=process.env.PORT || 5555
 const mongoDBURI = process.env.MONGO_URI;
 const app=express();
 
-app.use(express.json())
-app.use(cors(
-    // {origin: 'http://localhost:3000',
-    // methods: ['GET','POST','PUT','DELETE'],
-    // allowedHeaders: ['Content-Type']}
-))
+if(process.env.NODE_ENV !=="production"){
+    app.use(
+        cors({
+        origin:"http://localhost:5173",
+        })
+)
+}
 
-app.get('/',(req,res)=>{
-    console.log(req);
-    return res.status(234).send("Welcome to MERN Stack");
-})
+app.use(express.json())
 app.use('/books',booksRoute)
 
 if(process.env.NODE_ENV==="production"){
